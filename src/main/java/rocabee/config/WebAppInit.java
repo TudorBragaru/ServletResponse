@@ -12,15 +12,23 @@ import javax.servlet.ServletRegistration;
 public class WebAppInit implements WebApplicationInitializer {
 
     private static final String DISPATCHER_SERVLET_NAME = "dispatcher";
-
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+
+
+
+        AnnotationConfigWebApplicationContext context =
+                new AnnotationConfigWebApplicationContext();
         context.register(WebConfig.class);
 
-        DispatcherServlet dispatcherServlet = new DispatcherServlet(context);
 
-        ServletRegistration.Dynamic registration =  servletContext.addServlet(DISPATCHER_SERVLET_NAME, dispatcherServlet);
+        DispatcherServlet dispatcherServlet =
+                new DispatcherServlet(context);
+
+
+        ServletRegistration.Dynamic registration =
+                servletContext.addServlet(DISPATCHER_SERVLET_NAME, dispatcherServlet);
+
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
     }
