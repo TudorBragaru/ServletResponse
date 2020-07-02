@@ -106,7 +106,7 @@ import java.util.*;
                         nrSwitch = 2;
                     }
                 }
-            } while (sum < 8);
+            } while (sum < 9);
             return numbers;
         }
 
